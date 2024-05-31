@@ -5,20 +5,33 @@ filePath1 = 'C:\Users\rcasey9\Dropbox (GaTech)\DOE_Exos\Experiments\DOE_Task_Inv
 filePath2 = '\Biomechanics_Data\DOE_TIA_';
 filepath3 = '_PROCESSED\New Session';
 
-folderList = {'01_V'};
+folderList = {'02_03'};
 
 %% Specify your viconPath
 
 tic
+viconPath = [];
 files = dir('C:\Program Files\Vicon');
-for ii = length(files):1
+for ii = length(files):-1:1
     folder = files(ii).name;
     if contains(folder,'Nexus2*')
+        viconPath = ['C:\Program Files\Vicon\' folder '\Nexus.exe'];
         break
     end
 end
 
-viconPath = ['C:\Program Files\Vicon\' folder '\Nexus.exe'];
+files = dir('C:\Program Files (x86)\Vicon');
+for ii = length(files):-1:1
+    folder = files(ii).name;
+    if contains(folder,'Nexus2')
+        viconPath = ['C:\Program Files (x86)\Vicon\' folder '\Nexus.exe'];
+        break
+    end
+end
+
+if isempty(viconPath)
+    warning('Nexus.exe Object not found. Manually set viconPath variable to Nexus.exe fullpath');
+end
 
 
 
