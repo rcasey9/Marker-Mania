@@ -3,7 +3,7 @@ clc; close all; clear;
 directory = pwd;
 
 addpath([directory '\MocapUtils'])
-addpath([directory '\MocapUtils'])
+addpath([directory '\MoCapTools-master'])
 
 ViconFolder = [];
 files = dir('C:\Program Files\Vicon');
