@@ -5,7 +5,8 @@ Follow these steps for processing your MoCap data:
 1) If this is your first time using this package on a computer, you will need to run the Setup.m script
  
 2) Format your data so that all trials are grouped into folders that contain their respective markerset, Static, and FJC (if you use FJCs) 
-  *** your static trial must include "Static", "static", or "STATIC" somewhere in its name. No other trials should contain these substrings
+
+*** your static trial must include "Static", "static", or "STATIC" somewhere in its name. No other trials should contain these substrings
      
 3) Label your static trial(s), set the region of interest to just 2 total frames, and clear events outside of the region of interest. 
  Run the "static skeleton calibration" and "Set Autolabel Pose" pipelines on your static trial(s).
