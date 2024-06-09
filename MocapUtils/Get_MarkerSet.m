@@ -15,7 +15,7 @@ L = length(files);
 index = false(1, L);
 for k = 1:L
     M = length(files(k).name);
-    if M > 4 && strcmp(files(k).name(M-3:M), '.x1d')
+    if M > 4 && contains(files(k).name, '.c3d')
         index(k) = true;
     end
 end
