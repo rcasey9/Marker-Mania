@@ -5,7 +5,7 @@ viconPath = [];
 files = dir('C:\Program Files\Vicon');
 for ii = length(files):-1:1
     folder = files(ii).name;
-    if contains(folder,'Nexus2*')
+    if contains(folder,'Nexus2')
         viconPath = ['C:\Program Files\Vicon\' folder '\Nexus.exe'];
         break
     end
