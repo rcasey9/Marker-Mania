@@ -28,7 +28,6 @@ if contains(filename,'static') | contains(filename,'Static') | contains(filename
 
 File = files(ii).name;
 filename = [filePath '\' File(1:length(File)-4)];
-workingFilename = [filePath '\Working\' File(1:length(File)-4)];
 disp(['Preparing trial: ' File(1:length(File)-4)])
 doing_vicon_operations = true;
 while doing_vicon_operations
@@ -37,7 +36,7 @@ vicon.OpenTrial(filename, 60);
 vicon.RunPipeline('ExportC3D', '', 200);
 vicon.SaveTrial(60);
 [ names, ~, active ] = vicon.GetSubjectInfo();
-subject = names{active};
+subject = names{active}
 segments = vicon.GetSegmentNames(subject);
 for qq = 1:length(segments)
     segment = segments{qq};

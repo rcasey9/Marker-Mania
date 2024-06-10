@@ -2,10 +2,10 @@ clc; clear; close all;
 %% Specify path to your data
 
 filePath1 = 'C:\Users\rcasey9\Dropbox (GaTech)\DOE_Exos\Experiments\DOE_Task_Invariant_Protocol\Official_Collections2\TI';
-filePath2 = '\Biomechanics_Data\DOE_TIA_';
+filePath2 = '\Biomechanics_data\DOE_TIA_';
 filepath3 = '_PROCESSED\New Session';
 
-folderList = {'05_01'};
+folderList = {'04_01','04_02','04_V','05_01','05_02','05_V','05_LC','04_LC'};
 
 %% Specify your viconPath
 
