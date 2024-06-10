@@ -5,7 +5,7 @@ filePath1 = 'C:\Users\rcasey9\Dropbox (GaTech)\DOE_Exos\Experiments\DOE_Task_Inv
 filePath2 = '\Biomechanics_Data\DOE_TIA_';
 filepath3 = '_PROCESSED\New Session';
 
-folderList = {'02_03'};
+folderList = {'05_01'};
 
 %% Specify your viconPath
 

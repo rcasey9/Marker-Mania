@@ -40,7 +40,7 @@ doing_vicon_operations = true;
 while doing_vicon_operations
 try   
 vicon.OpenTrial(filename, 60);
-vicon.RunPipeline('Reconstruct and Label', '', 1000);
+vicon.RunPipeline('Reconstruct And Label', '', 1000);
 vicon.RunPipeline('ExportC3D', '', 100);
 vicon.SaveTrial(60);
 vicon.CloseTrial(60);
@@ -65,7 +65,7 @@ end
 doing_vicon_operations = false;
 end
 
-%try
+try
     copyfile([filename '.c3d'], workingDir)
     pause(5)
     Gap_Fill(markerSet,workingFilename,filePath)
@@ -78,11 +78,11 @@ end
     Marker_Checker(markerSet,[workingFilename '_filled'],filePath,true)
     pause(1)
     end
-% catch 
-%     warning(['Problem with trial ' files(ii).name(1:length(files(ii).name) -4)])
-%     copyfile([filename '.c3d'], missingDir)
-%     continue
-% end
+catch 
+    warning(['Problem with trial ' files(ii).name(1:length(files(ii).name) -4)])
+    copyfile([filename '.c3d'], missingDir)
+    continue
+end
 end
 end
 end

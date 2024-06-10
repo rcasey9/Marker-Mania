@@ -33,23 +33,7 @@ if ~contains(filename,'static') & ~contains(filename,'Static') & ~contains(filen
 if ~contains(filename,'fjc') & ~contains(filename,'Fjc') & ~contains(filename,'FJC')
   % check for missing markers first and last frame  
   c3dFile = [filename '.c3d'];
-                markerStruct = Vicon.ExtractMarkers(c3dFile);
-                
-                % Loop through all markers
-               
-                % m_names = fieldnames(markerStruct);
-                % for m = 1:length(m_names)
-                %     m_arr = markerStruct.(m_names{m});
-                %     % if isequaln(m_arr{1,2},NaN)
-                %     %     fprintf('\t%s missing in first frame\n', m_names{m});
-                %     % end
-                %     % if isequaln(m_arr{height(m_arr),2},NaN)
-                %     %     fprintf('\t%s missing in last frame\n', m_names{m});
-                %     % end
-                % end
 
-
-%check for marker jumps
                     markerStruct = Vicon.ExtractMarkers(c3dFile);
 
                     % Loop through all markers
