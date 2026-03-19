@@ -66,6 +66,7 @@ doing_vicon_operations = false;
 end
 
 try
+    disp(['Processing Trial: ' File(1:length(File)-4)])
     copyfile([filename '.c3d'], workingDir)
     pause(5)
     Gap_Fill(markerSet,workingFilename,filePath)
@@ -75,11 +76,14 @@ try
     Gap_Fill(markerSet,workingFilename,filePath)
     pause(1)
     if clean
+    disp(['Checking Trial: ' File(1:length(File)-4)])
     Marker_Checker(markerSet,[workingFilename '_filled'],filePath,true)
     pause(1)
+    else
+       disp(['Processed Trial Quality Insufficient: ' File(1:length(File)-4)]) 
     end
 catch 
-    warning(['Problem with trial ' files(ii).name(1:length(files(ii).name) -4)])
+    warning(['Problem with trial: ' files(ii).name(1:length(files(ii).name) -4)])
     copyfile([filename '.c3d'], missingDir)
     continue
 end

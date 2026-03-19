@@ -1,0 +1,77 @@
+function C3D_Pass( filePath,viconPath)
+fprintf('\n \n \n \n %%%%%% STARTING FIRST PASS %%%%%% \n \n \n \n');
+[~,status_result] = system('tasklist /FI "imagename eq nexus.exe" /fo table /nh');
+%Check if Vicon is Running
+if ~contains(status_result, 'Nexus.exe')
+    %Open Vicon if it isn't running
+    system([viconPath ' &'])
+    pause(30)
+end
+vicon = ViconNexus();
+
+files = dir(filePath);
+L = length(files);
+index = false(1, L);
+finishedDir = [filePath '\Finished'];
+workingDir = [filePath '\Working'];
+missingDir = [filePath '\MissingMarkers'];
+if ~exist(finishedDir, 'dir'); mkdir(finishedDir); end
+if ~exist(workingDir, 'dir'); mkdir(workingDir); end
+if ~exist(missingDir, 'dir'); mkdir(missingDir); end
+for k = 1:L
+    M = length(files(k).name);
+    if M > 4 && strcmp(files(k).name(M-3:M), '.x1d')
+        index(k) = true;
+    end
+end
+
+files = files(index);
+for ii = 1:length(files)
+
+File = files(ii).name;
+filename = File(1:length(File)-4);
+filename = [filePath '\' File(1:length(File)-4)];
+workingFilename = [filePath '\Working\' File(1:length(File)-4)];
+disp(['Preparing trial: ' File(1:length(File)-4)])
+doing_vicon_operations = true;
+while doing_vicon_operations
+try   
+vicon.OpenTrial(filename, 60);
+vicon.RunPipeline('ExportC3D', '', 100);
+vicon.SaveTrial(60);
+vicon.CloseTrial(60);
+catch
+
+    Create_Endnote_Filter(filePath,filename)
+    warning('Problem communicating with Vicon... Attempting to reconnect')
+    Check_Reopen_Vicon(viconPath);
+    Vicon_Openned = false;
+    while ~Vicon_Openned
+    try
+    vicon = ViconNexus();
+    catch 
+        pause(2)
+        continue
+    end
+    Vicon_Openned = true;
+    end
+    continue
+
+end
+doing_vicon_operations = false;
+end
+
+
+end
+
+
+files = dir(workingDir);
+for k = 1:length(files)
+    M = length(files(k).name);
+    if M > 4 && ~contains(files(k).name, 'filled')
+        pause(2)
+        delete([filePath '\Working\' files(k).name]);
+    end
+end
+end
+

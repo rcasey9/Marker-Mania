@@ -1,11 +1,8 @@
 clc; clear; close all;
 %% Specify path to your data
 
-filePath1 = 'C:\Users\rcasey9\Dropbox (GaTech)\DOE_Exos\Experiments\DOE_Task_Invariant_Protocol\Official_Collections2\TI';
-filePath2 = '\Biomechanics_data\DOE_TIA_';
-filepath3 = '_PROCESSED\New Session';
 
-folderList = {'04_01','04_02','04_V','05_01','05_02','05_V','05_LC','04_LC'};
+folderList = {'C:\Users\rcasey9\Downloads\Example Vicon Data\XS_05\New Session'};
 
 %% Specify your viconPath
 
@@ -39,9 +36,8 @@ end
 %% Processing
 
 for ii = 1:length(folderList)
-sub = folderList{ii};
-subNum = sub(1:2);
-filePath = [filePath1 subNum filePath2 sub filepath3];
+
+filePath = folderList{ii};
 
 
     markerSet = Get_MarkerSet(filePath, viconPath);

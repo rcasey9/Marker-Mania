@@ -67,6 +67,7 @@ end
 
 
 try
+    disp(['Processing Trial: ' File(1:length(File)-4)])
     copyfile([filename '.c3d'], workingDir)
     pause(5)
     Gap_Fill(markerSet,workingFilename,filePath)
@@ -81,9 +82,12 @@ try
     counter = counter + 1;
     end
     if clean
+    disp(['Checking Trial: ' File(1:length(File)-4)])
     disp([files(ii).name(1:length(files(ii).name)-4) ' has no abnormal movements'])
     Marker_Checker(markerSet,[workingFilename '_filled'],filePath,true)
     pause(1)
+    else
+       disp(['Processed Trial Quality Insufficient: ' File(1:length(File)-4)]) 
     end
 catch 
     warning(['Problem with trial' files(ii).name])
