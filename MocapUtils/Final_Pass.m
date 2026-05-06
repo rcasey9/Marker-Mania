@@ -32,7 +32,7 @@ for ii = 1:length(files)
 File = files(ii).name;
 filename = File(1:length(File)-4);
 
-if ~contains(filename,'filled') & ~contains(filename,'static') & ~contains(filename,'Static')
+if ~contains(filename,'filled') & ~contains(filename,'mvc') & ~contains(filename,'MVC')
 if ~contains(filename,'checked') & ~contains(filename,'fjc') & ~contains(filename,'Fjc') & ~contains(filename,'FJC')
 
 File = files(ii).name;
@@ -42,11 +42,11 @@ disp(['Preparing trial: ' File(1:length(File)-4)])
 doing_vicon_operations = true;
 while doing_vicon_operations
 try   
-vicon.OpenTrial(filename, 60);
-vicon.RunPipeline('Reconstruct and Label Least Filtered', '', 1000);
-vicon.RunPipeline('ExportC3D', '', 100);
-vicon.SaveTrial(60);
-vicon.CloseTrial(60);
+vicon.OpenTrial(filename, 300);
+vicon.RunPipeline('Reconstruct and Label Least Filtered', '', 1500);
+vicon.RunPipeline('ExportC3D', '', 300);
+vicon.SaveTrial(300);
+vicon.CloseTrial(300);
 catch
     warning('Problem communicating with Vicon... Attempting to reconnect')
     Check_Reopen_Vicon(viconPath);

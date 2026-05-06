@@ -41,11 +41,11 @@ disp(['Preparing trial: ' File(1:length(File)-4)])
 doing_vicon_operations = true;
 while doing_vicon_operations
 try   
-vicon.OpenTrial(filename, 60);
-vicon.RunPipeline('Reconstruct and Label More Filtered', '', 1000);
-vicon.RunPipeline('ExportC3D', '', 100);
-vicon.SaveTrial(60);
-vicon.CloseTrial(60);
+vicon.OpenTrial(filename, 300);
+vicon.RunPipeline('Reconstruct and Label More Filtered', '', 1500);
+vicon.RunPipeline('ExportC3D', '', 300);
+vicon.SaveTrial(300);
+vicon.CloseTrial(300);
 catch
     warning('Problem communicating with Vicon... Attempting to reconnect')
     Check_Reopen_Vicon(viconPath);

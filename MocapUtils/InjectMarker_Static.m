@@ -39,15 +39,15 @@ subnumber = '01';%'07';%'04'; % subject number as two digit string
 Exo = 'NoE';%'KE'; %Exo conditions for the subject {HW, KE, AE, NoE}
 subject = 'DOE_TI';%'DOE_KE'; %Make sure these correspond to exo conditions
 studyName = 'DOE_TI'; % name of study
-path = 'C:\Users\rcasey9\Dropbox (GaTech)\DOE_Exos\Experiments\DOE_Task_Invariant_Protocol\Official_Collections\TI07\Biomechanics_Data\DOE_TIA_07_PROCESSED\New Session\';
+path = 'C:\Users\rcasey9\GaTech Dropbox\ME-DboxMgmt-Young_DOETeam\Data\Pilots\Graham_Exo_HILO\archive\Exo_Pilot_08_Apr_2026\Biomech_data\DOE_Exo_8_Apr_2026\New Session\Finished\';
 
-staticFiles = dir(fullfile(path,'*V_static*.c3d'));
+staticFiles = dir(fullfile(path,'*static_noexo*.c3d'));
 staticFileC3D = staticFiles(1);
 staticFile = erase(staticFileC3D.name, '.c3d');
 
 
-marker = 'LFRM';% marker = 'STRN';
-markerA = 'LMELB';
+marker = 'LMELB';% marker = 'STRN';
+markerA = 'LFRM';
 markerB = 'LLELB';
 markerC = 'LRAD';
 
@@ -72,9 +72,9 @@ markerV1 = 'LULN';
 markerV2 = 'LSHO';
 markerV3 = 'LUPA';
 
-mX = -2940;
-mY = 1070;
-mZ = -2240;
+mX = -2313;
+mY = 1100;
+mZ = -3112;
 vicon.OpenTrial([path staticFile], 20);
 
 %EXTERNAL PACKAGES

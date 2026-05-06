@@ -9,15 +9,14 @@ for cl = 1:length(clusterNames)
     markers = fieldnames(markerSet.(clusterNames{cl}));
     clusterMarkers = {};
     for mm = 1:length(markers)
-        
-        if ~ismember(markerSet.(clusterNames{cl}).(markers{mm}).name,markerList)
+        if ~ismember(markers{mm},markerList)
             
             
-            markerList{markerNum} = markerSet.(clusterNames{cl}).(markers{mm}).name;
+            markerList{markerNum} = markers{mm};
             markerNum = markerNum +1;
             
         end
-        clusterMarkers{mm} =  markerSet.(clusterNames{cl}).(markers{mm}).name;
+        clusterMarkers{mm} =  markers{mm};
     end
     clusters{cl} = clusterMarkers;
 end
@@ -46,7 +45,7 @@ end
 
 
 function markerStruct = T10(markerStruct)
-  fields = fieldnames(markerStruct); 
+  fields = fieldnames(markerStruct);
   if ~isfield(markerStruct,'MID_PSI')
     markerStruct.MID_PSI = table;
             markerStruct.MID_PSI.Header(1:length(markerStruct.(fields{1}).Header)) = [markerStruct.(fields{1}).Header]';

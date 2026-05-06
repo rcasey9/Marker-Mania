@@ -10,7 +10,7 @@ if ~contains(status_result, 'Nexus.exe')
 end
 vicon = ViconNexus();
 
-files = dir(filePath);
+files = dir(filePath)
 L = length(files);
 index = false(1, L);
 for k = 1:L

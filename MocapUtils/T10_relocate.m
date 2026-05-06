@@ -26,7 +26,7 @@ for ii = 1:length(files)
 File = files(ii).name;
 filename = File(1:length(File)-4);
 
-if ~contains(filename,'checked') & ~contains(filename,'fjc') & ~contains(filename,'Fjc') & ~contains(filename,'FJC')
+if ~contains(filename,'checked') & ~contains(filename,'fjc') & ~contains(filename,'Fjc') & ~contains(filename,'FJC') &contains(filename,'aa')
 File = files(ii).name
 finishedFilename = [filePath '\Finished\' File(1:length(File)-4)];
 disp(['Preparing trial: ' File(1:length(File)-4)])

@@ -24,19 +24,21 @@ if isempty(viconPath)
     warning('Nexus.exe Object not found. Manually set viconPath variable to Nexus.exe fullpath');
 end
 
-filePath1 = 'C:\Users\rcasey9\Dropbox (GaTech)\DOE_Exos\Experiments\DOE_Task_Invariant_Protocol\Official_Collections2\TI';
-filePath2 = '\Biomechanics_Data\DOE_TIA_';
-filepath3 = '_PROCESSED\New Session';
-folderList = {'02_LC'};
+folderList = {'C:\Users\rcasey9\GaTech Dropbox\ME-DboxMgmt-Young_DOETeam\Data\Pilots\Graham_Exo_HILO\archive\Exo_Pilot_08_Apr_2026\Biomech_data\DOE_Exo_8_Apr_2026\New Session',...
+    };
 
 for ii = 1:length(folderList)
-sub = folderList{ii};
-subNum = sub(1:2);
-filePath = [filePath1 subNum filePath2 sub filepath3];
-    markerSet = Get_MarkerSet(filePath, viconPath);
-    Clean_Pass(markerSet, filePath);
-    Endnote_Pass(filePath);
-    %T10_relocate(markerSet, filePath);
+
+    filePath = folderList{ii};
+    
+   markerSet = Get_MarkerSet(filePath, viconPath);
+    
+   Clean_Pass(markerSet, filePath);
+    
+   Endnote_Pass(filePath);
+    
+    T10_relocate(markerSet, filePath);
+    
 end
 
 toc

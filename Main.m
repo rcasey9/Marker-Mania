@@ -2,7 +2,9 @@ clc; clear; close all;
 %% Specify path to your data
 
 
-folderList = {'C:\Users\rcasey9\Downloads\Example Vicon Data\XS_05\New Session'};
+folderList = {'C:\Users\rcasey9\GaTech Dropbox\ME-DboxMgmt-Young_DOETeam\Data\Pilots\Exo_Pilot_11_Apr_2026\Biomech_data\DOE_Exo_11_Apr_2026\New Session',...
+    'C:\Users\rcasey9\GaTech Dropbox\ME-DboxMgmt-Young_DOETeam\Data\Pilots\Exo_Pilot_08_Apr_2026\Biomech_data\DOE_Exo_8_Apr_2026\New Session',...
+    };
 
 %% Specify your viconPath
 
@@ -42,9 +44,8 @@ filePath = folderList{ii};
 
     markerSet = Get_MarkerSet(filePath, viconPath);
     First_Pass(markerSet, filePath, viconPath);
-    Fourth_Pass(markerSet, filePath, viconPath);
-    Fifth_Pass(markerSet, filePath, viconPath);
     Final_Pass(markerSet, filePath, viconPath);
+    %LC_Pass(markerSet, filePath, viconPath);
     Move_Markerset_Files(filePath)
     Endnote_Pass(filePath)
 end

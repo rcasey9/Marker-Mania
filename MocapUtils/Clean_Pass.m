@@ -21,7 +21,7 @@ files = files(index);
 for ii = 1:length(files)
 File = files(ii).name;
 filename = File(1:length(File)-4);
-if ~contains(filename,'static') & ~contains(filename,'Static') & ~contains(filename,'STATIC')
+if ~contains(filename,'mvc') & ~contains(filename,'MVC') & contains(filename,'aa')
 if ~contains(filename,'checked') & ~contains(filename,'fjc') & ~contains(filename,'Fjc') & ~contains(filename,'FJC')
 File = files(ii).name
 filename = [filePath '\' File(1:length(File)-4)];
@@ -33,7 +33,7 @@ disp(['Preparing trial: ' File(1:length(File)-4)])
 %try
     Gap_Fill(markerSet,workingFilename,filePath)
     pause(1)
-    movefile([workingFilename '_filled.c3d'],[finishedFilename '.c3d'])
+    movefile([workingFilename '.c3d'],[finishedFilename '.c3d'])
 
 % catch 
 %     warning(['Problem with trial' files(ii).name])
