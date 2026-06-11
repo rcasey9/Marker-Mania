@@ -21,7 +21,7 @@ files = files(index);
 for ii = 1:length(files)
 File = files(ii).name;
 filename = File(1:length(File)-4);
-if ~contains(filename,'mvc') & ~contains(filename,'MVC') & contains(filename,'aa')
+if ~contains(filename,'mvc') & ~contains(filename,'MVC') 
 if ~contains(filename,'checked') & ~contains(filename,'fjc') & ~contains(filename,'Fjc') & ~contains(filename,'FJC')
 File = files(ii).name
 filename = [filePath '\' File(1:length(File)-4)];

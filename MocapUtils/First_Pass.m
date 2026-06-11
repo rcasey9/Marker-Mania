@@ -30,8 +30,8 @@ for ii = 1:length(files)
 
 File = files(ii).name;
 filename = File(1:length(File)-4);
-if ~contains(filename,'filled') & ~contains(filename,'mvc') & ~contains(filename,'MVC') & ~contains(filename,'STATIC')
-if ~contains(filename,'checked') & ~contains(filename,'fjc') & ~contains(filename,'Fjc') & ~contains(filename,'FJC') 
+if ~contains(filename,'filled') & ~contains(filename,'mvc') & ~contains(filename,'MVC') & ~contains(filename,'STATIC') &  ~contains(filename,'checked') & ~contains(filename,'fjc') & ~contains(filename,'Fjc') & ~contains(filename,'FJC') 
+if ~contains(filename,'_hilo') & ~(contains(filename,'HILO_07') & contains(filename,'_su25')) & ~(contains(filename,'HILO_08') & contains(filename,'_su25')) & ~(contains(filename,'HILO_09') & contains(filename,'_su25')) & ~(contains(filename,'HILO_10') & contains(filename,'_su25'))
 File = files(ii).name
 filename = [filePath '\' File(1:length(File)-4)];
 workingFilename = [filePath '\Working\' File(1:length(File)-4)];

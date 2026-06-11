@@ -22,7 +22,7 @@ for cl = 1:length(clusterNames)
 end
 
 
-if ~contains(filename,'fjc') & ~contains(filename,'Fjc') & ~contains(filename,'FJC')
+if ~contains(filename,'fjc') & ~contains(filename,'Fjc') & ~contains(filename,'FJC') & ~contains(filename,'AA_03_static_exo_01')
   % check for missing markers first and last frame  
   c3dFile = [filename '.c3d'];
   finishedName = erase(c3dFile,[path '\Finished\']);         
@@ -48,6 +48,7 @@ function markerStruct = T10(markerStruct)
   fields = fieldnames(markerStruct);
   if ~isfield(markerStruct,'MID_PSI')
     markerStruct.MID_PSI = table;
+
             markerStruct.MID_PSI.Header(1:length(markerStruct.(fields{1}).Header)) = [markerStruct.(fields{1}).Header]';
             markerStruct.MID_PSI.x(1:length(markerStruct.(fields{1}).Header)) = NaN;
             markerStruct.MID_PSI.y(1:length(markerStruct.(fields{1}).Header)) = NaN;
